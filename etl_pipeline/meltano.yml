@@ -19,7 +19,6 @@ environments:
       loaders:
       - name: target-csv
         config:
-          destination_path: /home/analista/desafio-incidium/etl_pipeline/destination/postgres/dados/
           overwrite_behavior: append_records
 plugins:
   extractors:
@@ -30,3 +29,5 @@ plugins:
   - name: target-csv
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/target-csv.git
+    config:
+      file_naming_scheme: /home/analista/desafio-incidium/etl_pipeline/output/data/postgres/{stream_name}/{datestamp}/{stream_name}.csv
