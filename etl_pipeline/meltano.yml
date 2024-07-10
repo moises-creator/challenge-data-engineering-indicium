@@ -1,0 +1,32 @@
+version: 1
+default_environment: dev
+project_id: 1a206e19-de03-4265-91d8-52b94350a1fd
+environments:
+- name: dev
+  config:
+    plugins:
+      extractors:
+      - name: tap-postgres
+        config:
+          host: localhost
+          database: Northwind
+          user: postgres
+          password: postgres
+          port: 5432
+        select:
+        - '!information_schema-*.*'
+        - '*.*'
+      loaders:
+      - name: target-csv
+        config:
+          destination_path: /home/analista/desafio-incidium/etl_pipeline/destination/postgres/dados/
+          overwrite_behavior: append_records
+plugins:
+  extractors:
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+  loaders:
+  - name: target-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/target-csv.git
