@@ -57,18 +57,18 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 
 
 ## `5° Passo - Configurar variáveis de ambiente:`
-TAP_POSTGRES_HOST='localhost'
-TAP_POSTGRES_PORT='5432'
-TAP_POSTGRES_USER='postgres'
-TAP_POSTGRES_PASSWORD='postgres'
-TAP_POSTGRES_DATABASE='Northwind'
+* TAP_POSTGRES_HOST='localhost'
+* TAP_POSTGRES_PORT='5432'
+* TAP_POSTGRES_USER='postgres'
+* TAP_POSTGRES_PASSWORD='postgres'
+* TAP_POSTGRES_DATABASE='Northwind'
 
-TARGET_POSTGRES_HOST='localhost'
-TARGET_POSTGRES_PORT='5432'
-TARGET_POSTGRES_USER='postgres'
-TARGET_POSTGRES_PASSWORD='postgres'
-TARGET_POSTGRES_DATABASE='Northwind'
-PROJECT_PATH='/home/analista/desafio-incidium/etl_pipeline/'
+* TARGET_POSTGRES_HOST='localhost'
+* TARGET_POSTGRES_PORT='5432'
+* TARGET_POSTGRES_USER='postgres'
+* TARGET_POSTGRES_PASSWORD='postgres'
+* TARGET_POSTGRES_DATABASE='Northwind'
+* PROJECT_PATH='/home/analista/desafio-incidium/etl_pipeline/'
 
 
 
