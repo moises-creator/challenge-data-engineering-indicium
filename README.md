@@ -82,8 +82,13 @@ Copie os conteúdos do arquivo meltano.yml do git para dentro do arquivo meltano
 * `Cria um usuario dentro do airflow:` meltano invoke airflow users create -u admin@localhost -p password --role Admin -e admin@localhost -f admin -l admin
 
 * `Executar o airflow scheduler junto com o webapp:` meltano invoke airflow standalone
+  
+* `Logar com usuário`: admin@localhost
+  
+* `Usar a senha:`: password
 
 * Foi elaborada uma dag onde executa os subprocessos do meltano, para mais detalhes verifique a pasta orchestrate/airflow/dags/dag_pipeline_meltano.py:
+
 
 `Obs:` Ao executar o airflow, o pipeline sera executado automaticamente, pode acompanhar a execucao acessando `localhost:3000` no Browser. O resultado deste pipeline estará presente na pasta output e no banco de dados Destino.
 
