@@ -20,6 +20,7 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 * `altere a senha para poder referenciar a sua senha nas variáveis de ambiente:`ALTER USER postgres PASSWORD 'NovaSenha';
 * `Confirmar a alteração de senha:\p`
 * `copie e cole a query disponibilizada pelo desafio:`https://github.com/techindicium/code-challenge/blob/main/data/northwind.sql
+* `Digite o comando a seguir para visualizar as tabelas criadas:` \dt
 
 ## 3° Passo - Instalar o Meltano:
 
