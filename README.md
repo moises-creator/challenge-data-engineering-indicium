@@ -9,7 +9,7 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 
 * `Crie o ambiente virtual e ative-o na pasta raíz do projeto(estou usando pip e venv):`https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 
-* `Navegue até a pasta: desafio-incidium/etl_pipeline`
+* `Navegue até a pasta: challenge-data-engineering-incidium/etl_pipeline`
 
 ## 2° Passo - Instalar e criar o banco de dados Postgres:
 * `Comando para instalar:`sudo apt install postgresql postgresql-contrib
@@ -30,7 +30,7 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 
 ## 4° Passo - Instalar extratores e carregadores:
 
-`Obs:` Como vamos utilizar duas bases de dados diferentes, vamos usar um extrator e carregador para CSV e outro para Postgres. Lembrando estar na pasta desafio-incidium/etl_pipeline
+`Obs:` Como vamos utilizar duas bases de dados diferentes, vamos usar um extrator e carregador para CSV e outro para Postgres. Lembrando estar na pasta challenge-data-engineering-incidium/etl_pipeline
 
 
 ## `csv`
@@ -63,7 +63,7 @@ Copie os conteúdos do arquivo meltano.yml do git para dentro do arquivo meltano
 * TARGET_POSTGRES_USER='postgres'
 * TARGET_POSTGRES_PASSWORD='postgres'
 * TARGET_POSTGRES_DATABASE='Northwind'
-* PROJECT_PATH='/home/analista/desafio-incidium/etl_pipeline/'
+* PROJECT_PATH='/home/analista/challenge-data-engineering-incidium/etl_pipeline/'
 
 
 
