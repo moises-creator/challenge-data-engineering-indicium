@@ -48,7 +48,7 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 * Adicione no terminal: meltano add extractor tap-postgres 
 
 #### loader
-* Adicione no terminal: *meltano add loader target-postgres
+* Adicione no terminal: meltano add loader target-postgres
 
 ## Configurar os plugins:
 Copie os conteúdos do arquivo meltano.yml do git para dentro do arquivo meltano.yml que pode ter sido gerado no seu projeto
