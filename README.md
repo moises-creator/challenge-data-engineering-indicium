@@ -16,7 +16,7 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 * `Comando para iniciar o banco:`sudo systemctl start postgresql.service
 * `Comando para entrar no banco:`sudo -u postgres psql
 * `Se você estiver logado com a conta postgres, crie o banco diretamente:` createdb Northwind
-* `para conectar no banco use:` \connect
+* `para conectar no banco use:` \connect Northwind
 * `altere a senha para poder referenciar a sua senha nas variáveis de ambiente:`ALTER USER postgres PASSWORD 'NovaSenha';
 * `Confirmar a alteração de senha:\p`
 * `copie e cole a query disponibilizada pelo desafio:`https://github.com/techindicium/code-challenge/blob/main/data/northwind.sql
