@@ -8,26 +8,146 @@ environments:
       extractors:
       - name: tap-postgres
         config:
-          host: localhost
-          database: Northwind
-          user: postgres
-          password: postgres
-          port: 5432
+          host: $TAP_POSTGRES_HOST
+          database: $TAP_POSTGRES_DATABASE
+          user: $TAP_POSTGRES_USER
+          password: $TAP_POSTGRES_PASSWORD
+          port: $TAP_POSTGRES_PORT
         select:
-        - '!information_schema-*.*'
-        - '*.*'
+        - public-categories.*
+        - public-customers.*
+        - public-employees.*
+        - public-orders.*
+        - public-products.*
+        - public-region.*
+        - public-shippers.*
+        - public-suppliers.*
+        - public-territories.*
+        - public-employee_territories.*
+        - public-us_states.*
+        - public-customer_customer_demo.*
+        - public-customer_demographics.*
+
       loaders:
       - name: target-csv
         config:
           overwrite_behavior: append_records
+
 plugins:
   extractors:
   - name: tap-postgres
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+  - name: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+    config:
+      files:
+      - entity: order_details
+        path: $PROJECT_PATH/extract/order_details.csv
+        keys:
+          - order_id
+          - product_id
+
+  - name: tap-csv--step-2
+    inherit_from: tap-csv
+    config:
+      files:
+      - entity: order_details
+        path: $PROJECT_PATH/output/data/csv/
+        keys:
+          - order_id
+          - product_id
+      - entity: categories
+        path: $PROJECT_PATH/output/data/postgres/public-categories
+        keys:
+          - category_id
+
+      - entity: customers
+        path: $PROJECT_PATH/output/data/postgres/public-customers
+        keys:
+          - customer_id
+
+      - entity: employee_territories
+        path: $PROJECT_PATH/output/data/postgres/public-employee_territories
+        keys:
+          - employee_id
+          - territory_id
+
+      - entity: employees
+        path: $PROJECT_PATH/output/data/postgres/public-employees
+        keys:
+          - employee_id
+
+      - entity: orders
+        path: $PROJECT_PATH/output/data/postgres/public-orders
+        keys:
+          - order_id
+
+      - entity: products
+        path: $PROJECT_PATH/output/data/postgres/public-products
+        keys:
+          - product_id
+
+      - entity: region
+        path: $PROJECT_PATH/output/data/postgres/public-region
+        keys:
+          - region_id
+
+      - entity: shippers
+        path: $PROJECT_PATH/output/data/postgres/public-shippers
+        keys:
+          - shipper_id
+
+      - entity: suppliers
+        path: $PROJECT_PATH/output/data/postgres/public-suppliers
+        keys:
+          - supplier_id
+
+
+      - entity: territories
+        path: $PROJECT_PATH/output/data/postgres/public-territories
+        keys:
+          - territory_id
+
+
+      - entity: us_states
+        path: $PROJECT_PATH/output/data/postgres/public-us_states
+        keys:
+          - state_id
+          
   loaders:
   - name: target-csv
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/target-csv.git
     config:
-      file_naming_scheme: /home/analista/desafio-incidium/etl_pipeline/output/data/postgres/{stream_name}/{datestamp}/{stream_name}.csv
+      file_naming_scheme: $PROJECT_PATH/output/data/postgres/{stream_name}/{datestamp}/{stream_name}.csv
+      overwrite_behavior: replace_file
+
+  - name: target-csv--order-details
+    inherit_from: target-csv
+    config:
+      file_naming_scheme: $PROJECT_PATH/output/data/csv/{datestamp}/{stream_name}.csv
+      overwrite_behavior: replace_file
+
+
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-target-postgres
+    config:
+      host: $TARGET_POSTGRES_HOST
+      database: $TARGET_POSTGRES_DATABASE
+      user: $TARGET_POSTGRES_USER
+      password: $TARGET_POSTGRES_PASSWORD
+      port: $TARGET_POSTGRES_PORT
+      default_target_schema: public
+
+  utilities:
+  - name: airflow
+    variant: apache
+    pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.8.1
+      --constraint 
+      https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+    config:
+      webserver:
+        web_server_port: '3000'
