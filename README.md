@@ -81,7 +81,7 @@ Copie os conteúdos do arquivo meltano.yml do git para dentro do arquivo meltano
 
 * Foi elaborada uma dag onde executa os subprocessos do meltano, para mais detalhes verifique a pasta orchestrate/airflow/dags/dag_pipeline_meltano.py:
 
-Obs: `Ao executar o airflow, o pipeline sera executado automaticamente, pode acompanhar a execucao acessando `localhost:3000 no Browser.
+`Obs:` Ao executar o airflow, o pipeline sera executado automaticamente, pode acompanhar a execucao acessando `localhost:3000` no Browser. O resultado deste pipeline estará presente na pasta output e no banco de dados Destino.
 
 
 
