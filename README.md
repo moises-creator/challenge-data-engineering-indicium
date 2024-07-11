@@ -7,7 +7,7 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 
 * `Baixe este repositório para prosseguir: https://github.com/moises-creator/challenge-data-engineering-incidium.git`
 
-* `Crie o ambiente virtual e ative-o na pasta raíz do projeto(estou usando pip e venv):`https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+* `Crie o ambiente virtual e ative-o na pasta raíz do projeto(estou usando linux ubuntu, pip e venv):`https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 
 * `Navegue até a pasta: challenge-data-engineering-incidium/etl_pipeline`
 
