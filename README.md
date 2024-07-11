@@ -67,6 +67,8 @@ Copie os conteúdos do arquivo meltano.yml do git para dentro do arquivo meltano
 * TARGET_POSTGRES_DATABASE='Northwind'
 * PROJECT_PATH='/home/analista/challenge-data-engineering-incidium/etl_pipeline/'
 
+`Obs:` Em PROJECT_PATH, você precisará passar seu diretório local até a pasta `etl_pipeline`
+
 
 
 
