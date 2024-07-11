@@ -1,4 +1,4 @@
-# Documentação - Resolução do Desafio Tech Engenharia de Dados da Incidium
+# Documentação - Resolução do Desafio Tech Engenharia de Dados da Indicium
 
 Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeline usando Airflow. Seu objetivo principal é extrair as informações de duas bases de dados, um CSV e um banco de dados Postgres, salvar em um diretório local e logo em seguida salvar todas as informações em um banco de dados Postgres.
 
