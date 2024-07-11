@@ -16,8 +16,12 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 * `Comando para iniciar o banco:`sudo systemctl start postgresql.service
 * `Comando para entrar no banco:`sudo -u postgres psql
 * `Se você estiver logado com a conta postgres, crie o banco diretamente:` createdb Northwind
+* `Como alternativa, crie outro banco para testes:` createdb Northwind2
+* `para conectar no banco use:` \connect Northwind2
+* `altere a senha para poder referenciar a sua senha nas variáveis de ambiente:`ALTER USER postgres PASSWORD 'postgres';
+* `Confirmar a alteração de senha:`\p
 * `para conectar no banco use:` \connect Northwind
-* `altere a senha para poder referenciar a sua senha nas variáveis de ambiente:`ALTER USER postgres PASSWORD 'NovaSenha';
+* `altere a senha para poder referenciar a sua senha nas variáveis de ambiente:`ALTER USER postgres PASSWORD 'postgres';
 * `Confirmar a alteração de senha:`\p
 * `copie e cole a query disponibilizada pelo desafio:`https://github.com/techindicium/code-challenge/blob/main/data/northwind.sql
 * `Digite o comando a seguir para visualizar as tabelas criadas:` \dt
@@ -64,7 +68,7 @@ Copie os conteúdos do arquivo meltano.yml do git para dentro do arquivo meltano
 * TARGET_POSTGRES_PORT='5432'
 * TARGET_POSTGRES_USER='postgres'
 * TARGET_POSTGRES_PASSWORD='postgres'
-* TARGET_POSTGRES_DATABASE='Northwind'
+* TARGET_POSTGRES_DATABASE='Northwind2'
 * PROJECT_PATH='/home/analista/challenge-data-engineering-incidium/etl_pipeline/'
 
 `Obs:` Em PROJECT_PATH, você precisará passar seu diretório local até a pasta `etl_pipeline`
@@ -90,7 +94,7 @@ Copie os conteúdos do arquivo meltano.yml do git para dentro do arquivo meltano
 * Foi elaborada uma dag onde executa os subprocessos do meltano, para mais detalhes verifique a pasta orchestrate/airflow/dags/dag_pipeline_meltano.py:
 
 
-`Obs:` Ao executar o airflow, o pipeline sera executado automaticamente, pode acompanhar a execucao acessando `localhost:3000` no Browser. O resultado deste pipeline estará presente na pasta output e no banco de dados Destino. Outro detalhe é que vai ser necessaário setar o tipo do schema dos valores a serem inseridos no banco de dados de Destino, possivelmente irá dar erro.
+`Obs:` Ao executar o airflow, o pipeline sera executado automaticamente, pode acompanhar a execucao acessando `localhost:3000` no Browser. O resultado deste pipeline estará presente na pasta output e no banco de dados Destino. Outro detalhe é que vai ser necessário setar o tipo do schema dos valores a serem inseridos caso o banco de dados de Destino for Northwind, possivelmente irá dar erro. Mas para sucesso, utilize o banco de dados alternativo Northwind2.
 
 
 
