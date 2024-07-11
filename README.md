@@ -18,9 +18,10 @@ Esse projeto tem o intuito de explorar a ferramenta Meltano, orquestrar o pipeli
 * `Se você estiver logado com a conta postgres, crie o banco diretamente:` createdb Northwind
 * `para conectar no banco use:` \connect Northwind
 * `altere a senha para poder referenciar a sua senha nas variáveis de ambiente:`ALTER USER postgres PASSWORD 'NovaSenha';
-* `Confirmar a alteração de senha:\p`
+* `Confirmar a alteração de senha:`\p
 * `copie e cole a query disponibilizada pelo desafio:`https://github.com/techindicium/code-challenge/blob/main/data/northwind.sql
 * `Digite o comando a seguir para visualizar as tabelas criadas:` \dt
+* `saia do banco digitando o comando a seguir:` \q
 
 ## 3° Passo - Instalar o Meltano:
 
